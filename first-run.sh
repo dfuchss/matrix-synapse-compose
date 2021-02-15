@@ -74,13 +74,14 @@ echo "Creating Apache2 Sample Configuration (no SSL) at $(pwd)/matrix-$homeserve
 sed "s/<<SERVER_NAME>>/$homeserver/g" templates/matrix-apache.conf.template > matrix-$homeserver.conf
 
 ### MAUTRIX TELEGRAM #####
+echo ""
 echo "Configuring Mautrix Telegram"
 mkdir mautrix-telegram
 docker run --rm -v $(pwd)/mautrix-telegram:/data dock.mau.dev/tulir/mautrix-telegram
 
-echo "Enter your Telegram API ID"
+echo "Enter your Telegram API ID:"
 read tg_api
-echo "Enter your Telegram API Hash"
+echo "Enter your Telegram API Hash:"
 read tg_hash
 
 START_LINE=$(awk '/permissions:$/{ print NR; exit }' ./mautrix-telegram/config.yaml)
@@ -112,10 +113,10 @@ cat templates/mautrix-appservice.template >> ./synapse/homeserver.yaml
 tail -n +$((END_LINE + 1)) ./synapse/homeserver.yaml.orig >> ./synapse/homeserver.yaml
 rm synapse/homeserver.yaml.orig
 
-
+echo ""
 echo "######################################################################"
 echo "# Please Modify your homeserver.yaml file on your will ..            #"
 echo "# You have to state your admin users in mautrix-telegram/config.yaml #"
-echo "#Also take a look at the apache configuration in this directory.     #"
+echo "# Also take a look at the apache configuration in this directory.    #"
 echo "######################################################################"
 
