@@ -1,0 +1,6 @@
+docker-compose.yml
+matrix-*.conf
+mautrix-telegram
+synapse
+postgres
+wait
