@@ -1,0 +1,2 @@
+app_service_config_files:
+  - /data/mautrix-telegram-registration.yaml

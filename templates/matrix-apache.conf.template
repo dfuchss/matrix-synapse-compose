@@ -1,0 +1,14 @@
+<VirtualHost *:80>
+        ServerName <<SERVER_NAME>>
+
+        ErrorLog ${APACHE_LOG_DIR}/error-<<SERVER_NAME>>.log
+        CustomLog ${APACHE_LOG_DIR}/access-<<SERVER_NAME>>.log combined
+
+        AllowEncodedSlashes NoDecode
+        ProxyPreserveHost On
+
+        ProxyPass /_matrix http://127.0.0.1:8008/_matrix nocanon
+        ProxyPassReverse /_matrix http://127.0.0.1:8008/_matrix
+		ProxyPass /_synapse http://127.0.0.1:8008/_synapse nocanon
+        ProxyPassReverse /_synapse http://127.0.0.1:8008/_synapse
+</VirtualHost>

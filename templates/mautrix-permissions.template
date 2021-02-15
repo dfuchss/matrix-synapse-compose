@@ -1,0 +1,4 @@
+    permissions:
+        "*": "relaybot"
+        "<<HOMESERVER>>": "full"
+        "@admin:<<HOMESERVER>>": "admin"
