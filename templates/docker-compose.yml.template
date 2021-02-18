@@ -51,6 +51,4 @@ services:
 
 networks:
  matrix:
-  external:
-   name: matrix
 

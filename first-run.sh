@@ -34,10 +34,6 @@ echo ""
 echo "Please enter your homeserver (e.g. matrix.tld.com): "
 read homeserver
 
-echo "Please enter your desired virtual subnet for the matrix-services (e.g. 192.168.100.1/24): "
-read subnet
-
-
 
 ##### SYNAPSE & POSTGRES #####
 
@@ -49,8 +45,6 @@ echo "Downloading Waiting Tool ..."
 wget -q https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_RELEASE/wait > /dev/null
 chmod a+x wait
 
-echo "Creating Matrix Docker Network ..."
-docker network create matrix --subnet "$subnet"
 
 echo "Fixing DB URL ..."
 
